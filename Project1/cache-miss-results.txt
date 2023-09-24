@@ -1,0 +1,26 @@
+
+ Performance counter stats for './cache-miss 1000':
+
+             11.22 msec task-clock                       #    0.963 CPUs utilized             
+                 0      context-switches                 #    0.000 /sec                      
+                 0      cpu-migrations                   #    0.000 /sec                      
+             1,034      page-faults                      #   92.170 K/sec                     
+        22,940,186      cycles                           #    2.045 GHz                         (26.78%)
+        41,643,226      instructions                     #    1.82  insn per cycle              (62.34%)
+         3,042,600      branches                         #  271.214 M/sec                       (97.99%)
+             9,611      branch-misses                    #    0.32% of all branches           
+        17,591,068      L1-dcache-loads                  #    1.568 G/sec                     
+         1,607,641      L1-dcache-load-misses            #    9.14% of all L1-dcache accesses   (73.22%)
+            86,176      LLC-loads                        #    7.682 M/sec                       (2.01%)
+     <not counted>      LLC-load-misses                                                         (0.00%)
+
+       0.011645425 seconds time elapsed
+
+       0.003889000 seconds user
+       0.007778000 seconds sys
+
+
+Some events weren't counted. Try disabling the NMI watchdog:
+	echo 0 > /proc/sys/kernel/nmi_watchdog
+	perf stat ...
+	echo 1 > /proc/sys/kernel/nmi_watchdog
