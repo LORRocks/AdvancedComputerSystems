@@ -39,7 +39,7 @@ The use of a `Matrix` class allowed the internal representation of the data to b
 Keeping the internal representation hidden means we don't have to code additional multiplication methods for cache-optimized vs not.
 
 #### Multi-Threading
-The primary observation we use to increase code reuse is that by having a dynamic number of threads in our code, we can either have 1, or >1 to enable / disable multi-threading. We split the matrix up by columns, and have each thread calculate an output column. If we have multi-threading, we limit it to 1 thread at a time. This way, we assume threading always, and only need a single multiply method.
+The primary observation we use to increase code reuse is that by having a dynamic number of threads in our code, we can either have 1, or >1 to enable / disable multi-threading. We split the matrix up by columns, and have each thread calculate an output column. If we don't have multi-threading, we limit it to 1 thread at a time. This way, we assume threading always, and only need a single multiply method.
 
 The p-thread library is used to implement multi-threading.
 
@@ -59,6 +59,8 @@ This is where we have the most difficulty with code reuse. The C instruction is 
 
 ### Experimental Results
 In order to measure the effect of the various input matrix were tested, against various optimization combinations, to determine which optimizations worked the best, and how they interacted with each other. Not every possible combination was included, only relevant combinations. In addition, in the majority of the algorithms a ceiling was placed on which further larger input matrix would lead to infeasible times, so they were skipped in the testing phase.
+
+![](chart.png)
 
 ### Results
 
