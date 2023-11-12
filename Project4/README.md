@@ -1,4 +1,4 @@
-# Project 3 : SSD Performance Testing
+# Project 4 : Dictionary Encoding
 
 ## Overview
 
